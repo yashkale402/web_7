@@ -1,0 +1,29 @@
+<!--	Write a JavaScript function to validate email-id using regular expression.-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Email Validation</title>
+</head>
+<body>
+<fieldset style="width:30%";>
+  <center><h1>Email Validation</h1></center>
+  
+  <label>Email-ID:</label>
+  <input type="text" id="email" name="email" required style="width:300px;"><br><br>
+  
+  <center><button onclick="validate()">Validate</button></center>
+</fieldset>  
+  <script>
+    function validate() {
+      var em = document.getElementById("email");
+      var ptn = /^([a-zA-Z0-9]+[._]*[a-zA-Z0-9]*@[a-zA-Z]+\.[a-zA-Z]{2,})$/;
+      if (em.value.match(ptn)) {
+        alert("Email-id is valid");
+      } else {
+        em.focus();
+        alert("Email-id is invalid");
+      }
+    }
+  </script>
+</body>
+</html>

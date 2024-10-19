@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Total Bill Calculator</title>
+    <script>
+        function calculateBill() {
+            var productName = document.getElementById("productName").value;
+            var quantity = parseInt(document.getElementById("quantity").value);
+            var rate = parseFloat(document.getElementById("rate").value);
+            var discount = 0;
+            
+            if (quantity < 5) {
+                discount = 0;
+            } else if (quantity >= 5 && quantity < 25) {
+                discount = 5;
+            } else if (quantity >= 25 && quantity < 50) {
+                discount = 15;
+            } else if (quantity >= 50) {
+                discount = 20;
+            }
+            
+            var totalBill = quantity * rate * (1 - discount / 100);
+            
+            document.getElementById("totalBill").innerHTML = "<b>"+"<br>Name of product : " + productName + "<br><br>" + "Total Bill (in Rs.) : " + totalBill.toFixed(2) +"<br><br> Discount : " + discount + "%" +"</b>";
+        }
+    </script>
+</head>
+<body>
+<fieldset style="width:30%;">
+    <center><h1>Total Bill Calculator</h1></center>
+    <form>
+    <pre style="font-family: Times new roman; font-weight: bold;">
+        <label>Product Name:</label>	        <input type="text" id="productName" required><br>        
+        <label>Quantity:</label>			<input type="number" id="quantity" required><br>
+        <label>Rate:</label>				<input type="number" id="rate" step="0.01" required><br>
+        <center><button type="button" onclick="calculateBill()">Calculate Total Bill</button></center>
+    </pre>
+    </form>
+    
+    <div id="totalBill"></div>
+</fieldset>
+</body>
+</html>

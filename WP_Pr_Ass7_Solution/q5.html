@@ -1,0 +1,40 @@
+<!--Write a Java Script program to design Customer Account Details Form and perform validation on pan number field. 
+(pan number is of only 10 characters long, out of which first 5 characters are alphabets, 
+next 4 characters are digits and last character is alphabet)-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Account Details Form</title>
+    <script>
+        function validatePanNumber() {
+            var panNumber = document.getElementById("panNumber").value;
+            var panRegex = /^[A-Z]{5}[0-9]{4}[A-Z]$/;
+
+            if (panRegex.test(panNumber)) {
+                alert("PAN number is valid!");
+            } else {
+                alert("Invalid PAN number! Please enter a valid PAN number.");
+            }
+        }
+    </script>
+</head>
+<body>
+<fieldset style="width:30%;">
+    <center><h2>Customer Account Details Form</h2></center>
+    <form>
+    <pre style="font-family: Times new roman; font-weight: bold;">
+     	<p>	Pan number is of only 10 characters long, 
+	out of which first 5 characters are alphabets, 
+	next 4 characters are digits and last character is alphabet 
+	Example : SANJY2003R     </p>
+	<label>Customer Name:</label>		<input type="text" id="custName" name="custName" maxlength="20"><br>
+	<label>Customer Address:</label>	<input type="text" id="custAddr" name="custAddr"><br>
+	<label>Account Type:</label>		<input type="radio" name="acctype"><label>Saving</label>	  <input type="radio" name="acctype"><label>Current</label><br>
+     	<label>PAN Number:</label>		<input type="text" id="panNumber" name="panNumber" maxlength="10"><br>
+        <center><button type="button" onclick="validatePanNumber()">Submit</button></center>
+    </pre>
+    </form>
+</fieldset>
+</body>
+</html>
+

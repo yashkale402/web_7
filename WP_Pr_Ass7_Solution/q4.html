@@ -1,0 +1,48 @@
+<!--Write a JavaScript program to read employee details and generate pay- slip which will calculate net salary of an employee.-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Pay Slip Generator</title>
+    <script>
+        function calculateNetSalary() {
+            // Read employee details from input fields
+            var employeeName = document.getElementById("employeeName").value;
+            var employeeDept = document.getElementById("employeeDept").value;
+	    var employeeDesg = document.getElementById("employeeDesg").value;
+            var BASIC = parseFloat(document.getElementById("BASIC").value);
+            var HRA = parseFloat(document.getElementById("HRA").value);
+            var DA = parseFloat(document.getElementById("DA").value);
+
+            // Calculate net salary
+            var netSalary = BASIC + HRA + DA;
+
+            // Display the pay slip
+            document.getElementById("paySlip").innerHTML = "<br>"+"<b>"+"Employee Payslip " + "</b>"+"<br><br>" +
+		"Employee Name: " + employeeName + "<br>" +
+                "Employee Department: " + employeeDept + "<br>" +
+		"Employee Designation: " + employeeDesg + "<br>" +
+                "Basic Salary: " + BASIC.toFixed(2) + "<br>" +
+                "HRA: " + HRA.toFixed(2) + "<br>" +
+                "DA: " + DA.toFixed(2) + "<br>" +
+                "Net Salary: " + netSalary.toFixed(2);
+        }
+    </script>
+</head>
+<body>
+<fieldset style="width:30%;">
+    <center><h1>Payslip</h1></center>
+    <form>
+    <pre style="font-family: Times new roman; font-weight: bold;">
+        <label>Name of Employee:</label>	<input type="text" id="employeeName">
+        <label>Department:</label>			<input type="text" id="employeeDept">
+	<label>Designation:</label>			<input type="text" id="employeeDesg">
+        <label>Basic Salary:</label>			<input type="number" id="BASIC">
+        <label>HRA:</label>				<input type="number" id="HRA">
+        <label>DA:</label>					<input type="number" id="DA"><br>
+        			<button type="button" onclick="calculateNetSalary()">Submit</button>
+    </pre>
+    </form>
+</fieldset>
+    <div id="paySlip"></div>
+</body>
+</html>

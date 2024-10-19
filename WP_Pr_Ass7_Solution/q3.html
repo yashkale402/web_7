@@ -1,0 +1,36 @@
+<!--3.	Write a JavaScript program to compare the values of password and confirmed password field 
+and display message accordingly. Also perform the validation to check any of the field should not be empty.-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Password Confirmation</title>
+    <script>
+        function checkPassword() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+
+            if (username === "" || password === "" || confirmPassword === "") {
+                alert("Please fill all fields.");
+            } else if (password !== confirmPassword) {
+                alert("Passwords do not match. Please try again.");
+            } else {
+                alert("Passwords match! Submission successful.");
+            }
+        }
+    </script>
+</head>
+<body>
+<fieldset style="width:25%";>
+    <center><h1>User Login</h1></center>
+    <form>
+<pre style="font-family: Times new roman;">
+        <label>User Name:</label>         		<input type="text" id="username" name="username"><br>
+        <label>Password:</label>	 		<input type="password" id="password" name="password"><br>
+        <label>Confirmed Password:</label>	<input type="password" id="confirmPassword" name="confirmPassword"><br><br>
+        			<button type="button" onclick="checkPassword()">Submit</button>
+<pre>
+    </form>
+</fieldset>
+</body>
+</html>

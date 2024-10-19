@@ -1,0 +1,60 @@
+<!--    Write a JavaScript program for accepting name and mobile number from user and perform following validation:
+i.	Check all fields should not contain a null value
+ii.	Check name field contains only alphabets
+iii.	Mobile No. field should be of 10 digits long.-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Form Validation</title>
+</head>
+
+<body>
+<fieldset style="width:20%";>
+    <center><h1>User Information</h1></center>   
+    <form onsubmit="return validateForm()">
+    <pre style="font-family: Times new roman;">  
+        <label>Name : </label>	 		<input type="text" id="name"><br>        
+        <label>Mobile Number : </label> 	<input type="text" id="mobile"><br>        
+        <center><button type="submit">Submit</button></center>
+    </pre>
+    </form>    
+</fieldset>
+    <script>
+        function validateForm() {
+            var name = document.getElementById('name').value;
+            var mobile = document.getElementById('mobile').value;
+	    var letters = /^[A-Za-z]+$/;
+            var numbers = /^[0-9]+$/;
+            // Check if any field is null
+            if (name === '' || mobile === '') {
+                alert('All fields are required!');
+                return false;
+            }
+
+            // Check if name contains only alphabets	    
+            if (!name.match(letters)) {
+                alert('Name should contain only alphabets!');
+                return false;
+            }
+
+            // Check if mobile number is 10 digits long
+            if (mobile.length !== 10) {
+                alert('Mobile number should be 10 digits long!');
+                return false;
+            }
+	    if (!mobile.match(numbers))
+	    {
+                alert('Mobile number should be in digits only!');
+                return false;
+            }
+
+            // All validations passed
+            alert('Form submitted successfully!');
+            return true;
+        }
+    </script>
+</body>
+
+</html>
